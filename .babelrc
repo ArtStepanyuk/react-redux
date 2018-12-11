@@ -1,0 +1,4 @@
+{
+  "presets": ["env", "react"],
+  "plugins": ["emotion", "transform-class-properties", "transform-react-jsx"]
+}
