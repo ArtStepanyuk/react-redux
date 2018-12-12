@@ -4,6 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import NewsCategory from "./NewsCategory";
+import { connect } from "react-redux";
 
 const styles = theme => ({
   root: {
@@ -19,49 +20,29 @@ const styles = theme => ({
   }
 });
 
-class NewsCategories extends Component {
-  state = {
-    categories: [
-      {
-        name: "World",
-        visible: true,
-        subCategories: [
-          {
-            name: "Ukraine",
-            selected: false
-          },
-          {
-            name: "Japan",
-            selected: false
-          }
-        ]
-      },
-      {
-        name: "Local",
-        visible: true,
-        subCategories: [
-          {
-            name: "Stuff",
-            selected: false
-          },
-          {
-            name: "MoreStuff",
-            selected: false
-          }
-        ]
-      }
-    ]
+const mapStateToProps = state => {
+  return {
+    categories: state.newsFilters.categories.slice()
   };
+};
+
+class NewsCategories extends Component {
   render() {
-    const { classes } = this.props;
+    const { classes, categories } = this.props;
+    const drawNewsCategory = () => {
+      return (
+        categories.length > 0 &&
+        categories.map((item, index) => (
+          <NewsCategory category={item} key={index} />
+        ))
+      );
+    };
     return (
       <Grid container spacing={24} className={classes.root}>
-        {this.state.categories.map((item, index) => (
-          <NewsCategory category={item} key={index} />
-        ))}
+        {drawNewsCategory()}
       </Grid>
     );
   }
 }
 
-export default withStyles(styles)(NewsCategories);
+export default connect(mapStateToProps)(withStyles(styles)(NewsCategories));

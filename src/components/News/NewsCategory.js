@@ -20,17 +20,26 @@ const styles = theme => ({
 class NewsCategory extends Component {
   render() {
     const { classes, category, toggleSelectFilter } = this.props;
+
     return (
       <div className={classes.root}>
         test
         <Typography variant="h4" className={classes.title}>
-          {category.name} {category.visible}
+          {category.name}
         </Typography>
         <ul className={classes.title}>
           {category.subCategories.map((i, index) => {
             return (
-              <li key={index} onClick={() => toggleSelectFilter(i.name)}>
-                {i.selected} aa
+              <li
+                key={index}
+                onClick={() =>
+                  toggleSelectFilter({
+                    subCategoryName: i.name,
+                    categoryName: category.name
+                  })
+                }
+              >
+                {i.name} - {String(i.selected)}
               </li>
             );
           })}
@@ -40,13 +49,8 @@ class NewsCategory extends Component {
   }
 }
 
-const mapStateToProps = dispatch => ({});
-
 const mapDispatchToProps = dispatch => ({
-  toggleSelectFilter: name => {
-    console.log(name);
-    return dispatch(toggleSelectFilter(name));
-  }
+  toggleSelectFilter: payload => dispatch(toggleSelectFilter(payload))
 });
 
 NewsCategory.propTypes = {
@@ -55,6 +59,6 @@ NewsCategory.propTypes = {
 };
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(withStyles(styles)(NewsCategory));

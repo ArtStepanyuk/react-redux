@@ -10,6 +10,6 @@ export const TOGGLE_SELECT_FILTER = 'TOGGLE_SELECT_FILTER'
  * action creators
  */
 
-export function toggleSelectFilter(selected) {
-  return { type: TOGGLE_SELECT_FILTER, selected }
+export function toggleSelectFilter(payload) {
+  return { type: TOGGLE_SELECT_FILTER, payload }
 }
