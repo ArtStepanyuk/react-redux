@@ -1,4 +1,9 @@
 {
-  "presets": ["env", "react"],
-  "plugins": ["emotion", "transform-class-properties", "transform-react-jsx"]
+  "presets": ["env", "babel-preset-react"],
+  "plugins": [
+    "emotion",
+    "transform-class-properties",
+    "transform-react-jsx",
+    "transform-object-rest-spread"
+  ]
 }

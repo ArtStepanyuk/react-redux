@@ -3,8 +3,9 @@ import { TOGGLE_SELECT_FILTER } from "../actions";
 
 // Initial state
 const initialState = {
-  categories: {
-    World: {
+  categories: [
+    {
+      name: "World",
       visible: true,
       subCategories: [
         {
@@ -17,7 +18,8 @@ const initialState = {
         }
       ]
     },
-    Local: {
+    {
+      name: "Local",
       visible: true,
       subCategories: [
         {
@@ -30,7 +32,7 @@ const initialState = {
         }
       ]
     }
-  }
+  ]
 };
 //Selectors
 const normalizeFilters = filters => [
@@ -43,7 +45,8 @@ export default function newsFilters(state = initialState, action) {
   switch (action.type) {
     case TOGGLE_SELECT_FILTER:
       const { categoryName, subCategoryName } = action.payload;
-      const categories = [...state.categories].map(category => {
+      const copy = [...state.categories];
+      copy.map(category => {
         if (category.name === categoryName) {
           category.subCategories.map(filter => {
             if (filter.name === subCategoryName) {
@@ -54,10 +57,8 @@ export default function newsFilters(state = initialState, action) {
         }
         return category;
       });
-      return Object.assign({}, state, categories);
+      return Object.assign({}, state, { categories: copy });
     default:
-      return Object.assign({}, state, {
-        categories: normalizeFilters(state.categories)
-      });
+      return state;
   }
 }

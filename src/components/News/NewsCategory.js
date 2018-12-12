@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { toggleSelectFilter } from "../../actions/index";
+import NewsCategoryItem from "./NewsCategoryItem";
 
 const styles = theme => ({
   root: {
@@ -30,17 +31,15 @@ class NewsCategory extends Component {
         <ul className={classes.title}>
           {category.subCategories.map((i, index) => {
             return (
-              <li
+              <NewsCategoryItem
                 key={index}
-                onClick={() =>
-                  toggleSelectFilter({
-                    subCategoryName: i.name,
-                    categoryName: category.name
-                  })
-                }
-              >
-                {i.name} - {String(i.selected)}
-              </li>
+                subCategoryItem={{
+                  categoryName: category.name,
+                  subCategoryName: i.name,
+                  ...i
+                }}
+                onToggle={toggleSelectFilter}
+              />
             );
           })}
         </ul>

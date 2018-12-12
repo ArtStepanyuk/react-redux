@@ -1,10 +1,8 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import NewsCategory from "./NewsCategory";
+import { withStyles } from "@material-ui/core/styles";
+import React, { Component } from "react";
 import { connect } from "react-redux";
+import NewsCategory from "./NewsCategory";
 
 const styles = theme => ({
   root: {
@@ -30,12 +28,9 @@ class NewsCategories extends Component {
   render() {
     const { classes, categories } = this.props;
     const drawNewsCategory = () => {
-      return (
-        categories.length > 0 &&
-        categories.map((item, index) => (
-          <NewsCategory category={item} key={index} />
-        ))
-      );
+      return categories.map((item, index) => (
+        <NewsCategory category={item} key={item.name} />
+      ));
     };
     return (
       <Grid container spacing={24} className={classes.root}>
