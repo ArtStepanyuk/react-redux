@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "react-dom";
-import Layout from "./components/Layout";
+import Layout from "./containers/layout";
 import rootReducer from "./reducers";
 import { Provider } from "react-redux";
 import { createStore, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import "./sass/main.scss";
+import "./styles/main.scss";
 
 const store = createStore(
   rootReducer,

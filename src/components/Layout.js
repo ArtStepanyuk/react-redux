@@ -1,40 +1,12 @@
 import React from "react";
-import styled from "styled-components/dist/styled-components.js";
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import AppBar from "../common/AppBar";
+import AppBar from "../containers/bar";
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    marginTop: "50px"
-  },
-  paper: {
-    padding: theme.spacing.unit * 2,
-    color: theme.palette.text.secondary
-  }
-});
-
-const Button = styled.button`
-  color: hotpink;
-`;
-
-const Test = styled.h1`
-  color: blue;
-  &:hover {
-    color: red;
-  }
-`;
-
-const Layout = function(props) {
-  const { classes } = props;
-
+function Layout({ classes }) {
   return (
     <div>
-      {/* <Button>This is a hotpink button.</Button>
-      <Test>hi</Test> */}
       <AppBar />
       <div className={classes.root}>
         <Grid container spacing={24}>
@@ -63,10 +35,10 @@ const Layout = function(props) {
       </div>
     </div>
   );
-};
+}
 
 Layout.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Layout);
+export default Layout;

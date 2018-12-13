@@ -1,15 +1,9 @@
-/*
- * action types
- */
+import { SELECT_WORLD_CATEGORY, SELECT_LOCAL_CATEGORY } from '../constants';
 
-//actions types
-export const TOGGLE_SELECT_FILTER = "TOGGLE_SELECT_FILTER";
+export function selectWorldCategory(id) {
+  return { type: SELECT_WORLD_CATEGORY, payload: { id }};
+}
 
-/*
- * action creators
- */
-
-export function toggleSelectFilter(payload) {
-  console.log(payload);
-  return { type: TOGGLE_SELECT_FILTER, payload };
+export function selectLocalCategory(id) {
+    return { type: SELECT_LOCAL_CATEGORY, payload: { id }};
 }

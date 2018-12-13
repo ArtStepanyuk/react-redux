@@ -134,7 +134,7 @@ export const dummy = [
         },
         author: "Theresa Braine",
         title:
-          "Verizon unloads 10,000 employees, with up to 60 weeks' pay - NY Daily News - New York Daily News",
+          "Verizon unloads 10,000 employees, with up to 60 weeks' pay - NY Daily news - New York Daily news",
         description:
           "Verizon says 10,000 employees have accepted its offer to leave the company this year and next, with up to 60 weeks' pay.",
         url:
@@ -235,11 +235,11 @@ export const dummy = [
       {
         source: {
           id: "fox-news",
-          name: "Fox News"
+          name: "Fox news"
         },
         author: "Samuel Chamberlain",
         title:
-          "United Airlines criticized by passenger for not landing plane after woman suffers seizures - Fox News",
+          "United Airlines criticized by passenger for not landing plane after woman suffers seizures - Fox news",
         description:
           "A passenger on a United Express flight from Houston to Cincinnati has lambasted the crew for not cutting the flight short after another flyer suffered seizures shortly after the plane took off Sunday.",
         url:

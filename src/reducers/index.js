@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import newsFilters from "./newsFilters";
+import news from "./news";
 
 export default combineReducers({
-  newsFilters
+  news
 });
